@@ -1,14 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.update.UpdateFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="Create a trip"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
 
-</FrameLayout>
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:layout_marginStart="30dp"
+        android:src="@drawable/ic_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <EditText
+        android:id="@+id/update_departure"
+        android:layout_width="317dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:hint="Enter Departure"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <EditText
+        android:id="@+id/update_date"
+        android:layout_width="150dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="10dp"
+        android:hint="Enter Date"
+        android:minHeight="48dp"
+        app:layout_constraintStart_toStartOf="@+id/update_departure"
+        app:layout_constraintTop_toBottomOf="@+id/update_departure"
+        tools:ignore="TouchTargetSizeCheck"/>
+
+    <EditText
+        android:id="@+id/update_time"
+        android:layout_width="130dp"
+        android:layout_height="47dp"
+        android:hint="Enter Time"
+        android:layout_marginTop="10dp"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="@+id/update_departure"
+        app:layout_constraintTop_toBottomOf="@+id/update_departure"
+        tools:ignore="TouchTargetSizeCheck"/>
+
+    <EditText
+        android:id="@+id/update_destination"
+        android:layout_width="317dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="20dp"
+        android:hint="Enter Destination"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/update_date"
+        tools:ignore="TouchTargetSizeCheck"/>
+
+    <EditText
+        android:id="@+id/update_date2"
+        android:layout_width="150dp"
+        android:layout_height="47dp"
+        android:minHeight="48dp"
+        android:layout_marginTop="10dp"
+        android:hint="Enter Date"
+        app:layout_constraintStart_toStartOf="@+id/update_destination"
+        app:layout_constraintTop_toBottomOf="@+id/update_destination"
+        tools:ignore="TouchTargetSizeCheck"/>
+
+    <EditText
+        android:id="@+id/update_time2"
+        android:layout_width="130dp"
+        android:layout_height="47dp"
+        android:hint="Enter Time"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/update_destination"
+        app:layout_constraintTop_toBottomOf="@+id/update_destination"
+        tools:ignore="TouchTargetSizeCheck"/>
+
+    <EditText
+        android:id="@+id/update_type"
+        android:layout_width="317dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="30dp"
+        android:drawableEnd="@drawable/ic_down"
+        android:hint="Trip Type"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/update_date2"
+        tools:ignore="TouchTargetSizeCheck" />
+
+
+    <Button
+        android:id="@+id/update_btn"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="196dp"
+        android:text="Update Trip"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/update_type"
+        app:layout_constraintStart_toStartOf="@+id/update_type" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

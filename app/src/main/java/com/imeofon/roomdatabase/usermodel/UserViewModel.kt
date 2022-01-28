@@ -5,7 +5,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import com.imeofon.roomdatabase.data.UserDatabase
-import com.imeofon.roomdatabase.data.UserRepository
+import com.imeofon.roomdatabase.repository.UserRepository
 import com.imeofon.roomdatabase.model.User
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -26,4 +26,18 @@ class UserViewModel(application: Application): AndroidViewModel(application) {
             repository.addUser(user)
         }
     }
+
+    fun updateUser(user: User){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.updateUse(user)
+        }
+
+    }
+
+    fun deleteUser(user: User){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteUser(user)
+        }
+    }
+
 }

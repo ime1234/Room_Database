@@ -5,11 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.PopupMenu
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.imeofon.roomdatabase.R
+import com.imeofon.roomdatabase.model.User
 import com.imeofon.roomdatabase.usermodel.UserViewModel
 import kotlinx.android.synthetic.main.fragment_list.view.*
 
@@ -42,6 +45,27 @@ class ListFragment : Fragment() {
         }
 
         return view
+    }
+
+    override fun showMenu(view: View, user: User) {
+
+        val popupMenu = PopupMenu(view.context, view)
+        popupMenu.inflate(R.menu.rv_menu)
+        popupMenu.show()
+
+        popupMenu.setOnMenuItemClickListener {
+            when (it.itemId) {
+                R.id.delete -> {
+                    mUserViewModel.deleteUser(user)
+                }
+                R.id.update -> {
+                    val action =
+                        ListFragmentDirections.actionListFragmentToUpdateFragment2(user)
+                    view.findNavController().navigate(action)
+                }
+            }
+            true
+        }
     }
 
 }
